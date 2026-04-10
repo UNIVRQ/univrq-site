@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIVRQ | Arquitetos de Universos de Marca</title>
+    <meta name="description" content="A primeira holding de marketing do Brasil que integra branding estratégico, live marketing e comunidade em uma arquitetura única de crescimento.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --cosmos-black: #0A0A0F;
+            --nebula-violet: #6B4EE6;
+            --stellar-white: #F8F9FA;
+            --orbit-cyan: #00D9FF;
+            --supernova-gold: #FFD700;
+            --gray-100: #1A1A2E;
+            --gray-200: #2D2D44;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cosmos-black);
+            color: var(--stellar-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--stellar-white);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        
+        .logo span {
+            color: var(--nebula-violet);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--stellar-white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--orbit-cyan);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(107, 78, 230, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--stellar-white);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            from { transform: translateY(100vh) translateX(0); }
+            to { transform: translateY(-10vh) translateX(100px); }
+        }
+        
+        .pre-headline {
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--orbit-cyan);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+        
+        .hero h1 span {
+            color: var(--nebula-violet);
+            display: block;
+        }
+        
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            opacity: 0.8;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+        
+        .btn-primary {
+            background: var(--nebula-violet);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background: var(--orbit-cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--stellar-white);
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 50px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--nebula-violet);
+            color: var(--nebula-violet);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Sections General */
+        section {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-label {
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--orbit-cyan);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+        
+        /* Manifesto Section */
+        .manifesto {
+            background: var(--gray-100);
+            position: relative;
+        }
+        
+        .manifesto-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .manifesto-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--supernova-gold);
+        }
+        
+        .manifesto-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .manifesto-quote {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--nebula-violet);
+            border-left: 3px solid var(--nebula-violet);
+            padding-left: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .manifesto-visual {
+            position: relative;
+            height: 400px;
+            background: radial-gradient(circle, rgba(107, 78, 230, 0.2) 0%, transparent 70%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Problem Section */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .problem-card {
+            background: var(--gray-100);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s;
+        }
+        
+        .problem-card:hover {
+            border-color: var(--nebula-violet);
+            transform: translateY(-5px);
+        }
+        
+        .problem-card h3 {
+            color: var(--supernova-gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .problem-card p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        .problem-conclusion {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--gray-100) 0%, transparent 100%);
+            border-left: 3px solid var(--nebula-violet);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        /* Solution Section */
+        .dimensions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .dimension-card {
+            background: var(--gray-100);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dimension-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--nebula-violet);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .dimension-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .dimension-card:hover {
+            border-color: var(--nebula-violet);
+            transform: translateY(-5px);
+        }
+        
+        .dimension-card h3 {
+            color: var(--nebula-violet);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .dimension-card .subtitle {
+            font-size: 0.9rem;
+            color: var(--orbit-cyan);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .dimension-card p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        .integration-note {
+            margin-top: 3rem;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(107, 78, 230, 0.1);
+            border-radius: 15px;
+            font-style: italic;
+        }
+        
+        /* Differential Section */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .comparison-col {
+            padding: 2rem;
+        }
+        
+        .comparison-col.traditional {
+            background: var(--gray-100);
+            opacity: 0.7;
+        }
+        
+        .comparison-col.univrq {
+            background: linear-gradient(135deg, rgba(107, 78, 230, 0.2) 0%, rgba(0, 217, 255, 0.1) 100%);
+            border: 1px solid var(--nebula-violet);
+        }
+        
+        .comparison-col h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .comparison-col.traditional h3 {
+            color: var(--gray-200);
+        }
+        
+        .comparison-col.univrq h3 {
+            color: var(--nebula-violet);
+        }
+        
+        .comparison-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.95rem;
+        }
+        
+        .comparison-col.univrq .comparison-item {
+            border-color: rgba(107, 78, 230, 0.3);
+        }
+        
+        .proof-value {
+            margin-top: 3rem;
+            text-align: center;
+            padding: 2rem;
+            background: var(--supernova-gold);
+            color: var(--cosmos-black);
+            border-radius: 15px;
+            font-weight: 600;
+        }
+        
+        /* Process Section */
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            align-items: start;
+            padding: 2rem;
+            background: var(--gray-100);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+        
+        .step:hover {
+            background: var(--gray-200);
+        }
+        
+        .step-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--nebula-violet);
+            opacity: 0.5;
+            line-height: 1;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--stellar-white);
+        }
+        
+        .step-content p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(107, 78, 230, 0.1);
+            border-radius: 15px;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .timeline-item {
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--nebula-violet);
+            border-radius: 50%;
+            margin: 0 auto 0.5rem;
+        }
+        
+        .timeline-item.active .timeline-dot {
+            background: var(--orbit-cyan);
+            box-shadow: 0 0 20px var(--orbit-cyan);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--gray-100);
+            text-align: center;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--orbit-cyan);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--cosmos-black);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            color: var(--stellar-white);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--nebula-violet);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-security {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            justify-content: center;
+        }
+        
+        .alternative-contact {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-200);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--cosmos-black);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--gray-100);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--stellar-white);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--orbit-cyan);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gray-200);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--stellar-white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--nebula-violet);
+            border-color: var(--nebula-violet);
+        }
+        
+        .footer-legal {
+            font-size: 0.85rem;
+            opacity: 0.5;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-tagline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-style: italic;
+            color: var(--nebula-violet);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .manifesto-content,
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .dimensions {
+                grid-template-columns: 1fr;
+            }
+            
+            .step {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .step-number {
+                font-size: 2rem;
+            }
+            
+            .timeline {
+                flex-direction: column;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Selection Color */
+        ::selection {
+            background: var(--nebula-violet);
+            color: white;
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">UNIV<span>RQ</span></a>
+        <ul class="nav-links">
+            <li><a href="#manifesto">Manifesto</a></li>
+            <li><a href="#problema">O Problema</a></li>
+            <li><a href="#solucao">Solução</a></li>
+            <li><a href="#processo">Processo</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles" id="particles"></div>
+        <span class="pre-headline">Arquitetos de Universos de Marca</span>
+        <h1>
+            Não criamos campanhas.
+            <span>Arquitetamos universos de conexão.</span>
+        </h1>
+        <p>
+            A primeira holding de marketing do Brasil que integra branding estratégico, 
+            live marketing e comunidade em uma arquitetura única de crescimento.
+        </p>
+        <div class="cta-group">
+            <a href="#contato" class="btn-primary">→ Arquitete Seu Universo</a>
+            <a href="#manifesto" class="btn-secondary">Conheça nossa metodologia</a>
+        </div>
+    </section>
+
+    <!-- Manifesto Section -->
+    <section class="manifesto" id="manifesto">
+        <span class="section-label">Manifesto UNIVRQ</span>
+        <div class="manifesto-content">
+            <div class="manifesto-text">
+                <h2>Cada marca é um universo em potencial. Cada universo precisa de arquitetos.</h2>
+                <p>
+                    O mercado confunde movimento com progresso. Cria campanhas que brilham e apagam. 
+                    Constrói eventos que acontecem e somem. Esquece que marcas fortes são constelações, 
+                    não estrelas solitárias.
+                </p>
+                <p>
+                    <strong>Não somos agência. Somos arquitetos de universos.</strong>
+                </p>
+                <p>
+                    Medimos sucesso não em likes, mas em laços criados. Não trabalhamos para clientes. 
+                    Trabalhamos com parceiros que querem deixar marcas no espaço, não no esquecimento.
+                </p>
+                <div class="manifesto-quote">
+                    "Arquitetamos universos de conexão"
+                </div>
+            </div>
+            <div class="manifesto-visual">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#6B4EE6" stroke-width="1" opacity="0.3"/>
+                    <circle cx="100" cy="100" r="60" fill="none" stroke="#00D9FF" stroke-width="1" opacity="0.5"/>
+                    <circle cx="100" cy="100" r="40" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.8"/>
+                    <circle cx="100" cy="60" r="4" fill="#6B4EE6"/>
+                    <circle cx="140" cy="100" r="4" fill="#00D9FF"/>
+                    <circle cx="100" cy="140" r="4" fill="#FFD700"/>
+                    <circle cx="60" cy="100" r="4" fill="#6B4EE6"/>
+                    <line x1="100" y1="60" x2="140" y2="100" stroke="#6B4EE6" stroke-width="1" opacity="0.5"/>
+                    <line x1="140" y1="100" x2="100" y2="140" stroke="#00D9FF" stroke-width="1" opacity="0.5"/>
+                    <line x1="100" y1="140" x2="60" y2="100" stroke="#FFD700" stroke-width="1" opacity="0.5"/>
+                    <line x1="60" y1="100" x2="100" y2="60" stroke="#6B4EE6" stroke-width="1" opacity="0.5"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problema">
+        <span class="section-label">O Mercado Está Fragmentado</span>
+        <h2 class="section-title">Agências executam. Ninguém arquiteta.</h2>
+        
+        <div class="problem-grid">
+            <div class="problem-card">
+                <h3>Eventos sem Continuidade</h3>
+                <p>"Fazemos uma ativação incrível. E depois? Silêncio. A comunidade se dissolve."</p>
+            </div>
+            <div class="problem-card">
+                <h3>Dados sem Emoção</h3>
+                <p>"Temos relatórios de ROI. Mas não sabemos quem realmente se conectou com a marca."</p>
+            </div>
+            <div class="problem-card">
+                <h3>Casting sem Comunidade</h3>
+                <p>"Contratamos promotores. Eles trabalham e vão embora. Nenhuma relação, nenhum legado."</p>
+            </div>
+            <div class="problem-card">
+                <h3>Estratégia sem Execução</h3>
+                <p>"O plano é brilhante. A execução é terceirizada para 5 fornecedores diferentes."</p>
+            </div>
+        </div>
+        
+        <div class="problem-conclusion">
+            Analisamos 13 das maiores agências do Brasil. Todas têm a mesma falha: 
+            tratam marketing como transação, não como arquitetura de relacionamento.
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solucao">
+        <span class="section-label">A Arquitetura UNIVRQ</span>
+        <h2 class="section-title">Cinco dimensões. Um universo integrado.</h2>
+        
+        <div class="dimensions">
+            <div class="dimension-card">
+                <h3>UNIVRQ BRAND</h3>
+                <span class="subtitle">Branding Estratégico & Identidade</span>
+                <p>Arquitetamos identidades que sustentam legados, não apenas logos que enfeitam.</p>
+            </div>
+            <div class="dimension-card">
+                <h3>UNIVRQ LIVE</h3>
+                <span class="subtitle">Live Marketing & Experiências</span>
+                <p>Criamos momentos que viram memórias coletivas, eventos que constroem comunidade.</p>
+            </div>
+            <div class="dimension-card">
+                <h3>UNIVRQ CAST</h3>
+                <span class="subtitle">Casting & Comunidade de Talentos</span>
+                <p>Cultivamos talentos que se tornam embaixadores, não apenas promotores temporários.</p>
+            </div>
+            <div class="dimension-card">
+                <h3>UNIVRQ NEXUS</h3>
+                <span class="subtitle">Tecnologia & Inteligência</span>
+                <p>Conectamos dados a emoções em tempo real. Tecnologia que amplifica conexão humana.</p>
+            </div>
+            <div class="dimension-card">
+                <h3>UNIVRQ CONTENT</h3>
+                <span class="subtitle">Conteúdo & Comunidade Digital</span>
+                <p>Construímos tribos, não apenas audiências. Conteúdo que gera conversa, não apenas cliques.</p>
+            </div>
+        </div>
+        
+        <div class="integration-note">
+            Todas as dimensões conversam. Nenhuma ação é isolada. 
+            Cada ponto de contato fortalece o universo da marca.
+        </div>
+    </section>
+
+    <!-- Differential Section -->
+    <section>
+        <span class="section-label">Por Que UNIVRQ?</span>
+        <h2 class="section-title">De agência para holding. De execução para arquitetura.</h2>
+        
+        <div class="comparison">
+            <div class="comparison-col traditional">
+                <h3>Agência Tradicional</h3>
+                <div class="comparison-item">Faz eventos</div>
+                <div class="comparison-item">Contrata promotores</div>
+                <div class="comparison-item">Entrega relatório</div>
+                <div class="comparison-item">Mede alcance</div>
+                <div class="comparison-item">Trabalha para você</div>
+                <div class="comparison-item">É fornecedor</div>
+            </div>
+            <div class="comparison-col univrq">
+                <h3>UNIVRQ</h3>
+                <div class="comparison-item">→ Arquiteta experiências</div>
+                <div class="comparison-item">→ Cultiva embaixadores</div>
+                <div class="comparison-item">→ Constrói comunidade</div>
+                <div class="comparison-item">→ Mede conexão</div>
+                <div class="comparison-item">→ Trabalha com você</div>
+                <div class="comparison-item">→ É sócio de crescimento</div>
+            </div>
+        </div>
+        
+        <div class="proof-value">
+            "Marcas que aplicam arquitetura integrada crescem 3x mais rápido 
+            que as que fragmentam ações."
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="processo">
+        <span class="section-label">Metodologia</span>
+        <h2 class="section-title">Como arquitetamos seu universo</h2>
+        
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h3>Mapeamento Estratégico</h3>
+                    <p>Diagnóstico completo da marca atual. Identificação de constelações (pontos fortes) e buracos negros (gaps de conexão).</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h3>Arquitetura Integrada</h3>
+                    <p>Design das 5 dimensões UNIVRQ específicas para seu universo. Plano de 90-180-365 dias.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h3>Ativação e Construção</h3>
+                    <p>Execução com parceiros operacionais (você não paga infraestrutura, paga resultado). Tecnologia de acompanhamento em tempo real.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">04</div>
+                <div class="step-content">
+                    <h3>Expansão Contínua</h3>
+                    <p>Análise de dados qualitativos e quantitativos. Otimização da comunidade. Escalada do universo da marca.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item active">
+                <div class="timeline-dot"></div>
+                <div>Mês 1</div>
+                <small>Fundação</small>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div>Mês 2</div>
+                <small>Ativação</small>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div>Mês 3</div>
+                <small>Conexão</small>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div>Mês 6</div>
+                <small>Legado</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contato">
+        <span class="section-label">Comece Sua Arquitetura</span>
+        <h2 class="section-title">Seu universo está esperando para ser construído.</h2>
+        <p>Estamos selecionando 5 marcas para diagnóstico estratégico gratuito em Abril/2026.</p>
+        
+        <form class="contact-form" action="https://formsubmit.co/hello@univrq.com" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+            </div>
+            <div class="form-group">
+                <label for="empresa">Empresa / Marca</label>
+                <input type="text" id="empresa" name="empresa" required placeholder="Nome da empresa">
+            </div>
+            <div class="form-group">
+                <label for="email">Email profissional</label>
+                <input type="email" id="email" name="email" required placeholder="seu@email.com">
+            </div>
+            <div class="form-group">
+                <label for="whatsapp">WhatsApp</label>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999">
+            </div>
+            <div class="form-group">
+                <label for="desafio">Qual seu maior desafio de marketing hoje?</label>
+                <select id="desafio" name="desafio" required>
+                    <option value="">Selecione...</option>
+                    <option value="branding">Branding e posicionamento</option>
+                    <option value="eventos">Eventos e ativações</option>
+                    <option value="comunidade">Construção de comunidade</option>
+                    <option value="dados">Dados e inteligência</option>
+                    <option value="integracao">Integração de tudo isso</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mensagem">Conte-nos mais sobre seu universo (opcional)</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Descreva seu desafio, objetivos ou sonhos para sua marca..."></textarea>
+            </div>
+            
+            <input type="hidden" name="_subject" value="Novo contato UNIVRQ - Arquitetura de Universo">
+            <input type="hidden" name="_captcha" value="false">
+            
+            <button type="submit" class="btn-primary" style="width: 100%; font-size: 1.1rem;">
+                → Quero Arquitetar Meu Universo
+            </button>
+            
+            <div class="form-security">
+                <span>🔒</span>
+                <span>Seus dados estão seguros. Nunca compartilhamos informações.</span>
+            </div>
+        </form>
+        
+        <div class="alternative-contact">
+            <p>Prefere conversar direto?</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="mailto:hello@univrq.com" style="color: var(--orbit-cyan);">hello@univrq.com</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">UNIV<span style="color: var(--nebula-violet);">RQ</span></div>
+            <div class="footer-links">
+                <a href="#manifesto">Manifesto</a>
+                <a href="#solucao">As 5 Dimensões</a>
+                <a href="#processo">Processo</a>
+                <a href="#contato">Contato</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/univrq-holding-3ab440402/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+                <a href="https://www.instagram.com/univrq/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">ig</a>
+                <a href="https://www.facebook.com/profile.php?id=61575388810357" target="_blank" rel="noopener noreferrer" aria-label="Facebook">fb</a>
+            </div>
+            <div class="footer-legal">
+                © 2026 UNIVRQ Holding. Todos os universos reservados.<br>
+                CNPJ: 42.069.285/0001-67
+            </div>
+            <div class="footer-tagline">
+                "Arquitetamos universos de conexão"
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Particles Animation
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const btn = this.querySelector('button[type="submit"]');
+            btn.innerHTML = 'Enviando...';
+            btn.disabled = true;
+        });
+    </script>
+</body>
+</html>
