@@ -41,6 +41,42 @@
             line-height: 1.2;
         }
         
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
         /* Navigation */
         nav {
             position: fixed;
@@ -198,6 +234,12 @@
             box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
         }
         
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
         .btn-secondary {
             background: transparent;
             color: var(--stellar-white);
@@ -251,9 +293,92 @@
             max-width: 700px;
         }
         
+        /* About Section */
+        .about {
+            background: var(--gray-100);
+            position: relative;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--supernova-gold);
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .highlight-item {
+            padding: 1.5rem;
+            background: rgba(107, 78, 230, 0.1);
+            border-radius: 10px;
+            border-left: 3px solid var(--nebula-violet);
+        }
+        
+        .highlight-item h4 {
+            color: var(--orbit-cyan);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .highlight-item p {
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.8;
+        }
+        
+        .about-visual {
+            position: relative;
+            height: 400px;
+            background: radial-gradient(circle, rgba(107, 78, 230, 0.2) 0%, transparent 70%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .founder-note {
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--orbit-cyan);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .founder-note h3 {
+            color: var(--orbit-cyan);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .founder-note p {
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
         /* Manifesto Section */
         .manifesto {
-            background: var(--gray-100);
+            background: var(--cosmos-black);
             position: relative;
         }
         
@@ -531,20 +656,34 @@
             box-shadow: 0 0 20px var(--orbit-cyan);
         }
         
-        /* Contact Section */
+        /* Contact Section - FORMSPREE OTIMIZADO */
         .contact {
             background: var(--gray-100);
             text-align: center;
         }
         
         .contact-form {
-            max-width: 600px;
+            max-width: 700px;
             margin: 3rem auto 0;
             text-align: left;
+            background: var(--cosmos-black);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
         
         .form-group {
             margin-bottom: 1.5rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
         }
         
         .form-group label {
@@ -552,6 +691,11 @@
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
             color: var(--orbit-cyan);
+            font-weight: 500;
+        }
+        
+        .form-group label .required {
+            color: var(--supernova-gold);
         }
         
         .form-group input,
@@ -559,13 +703,13 @@
         .form-group textarea {
             width: 100%;
             padding: 1rem;
-            background: var(--cosmos-black);
+            background: var(--gray-100);
             border: 1px solid var(--gray-200);
             border-radius: 10px;
             color: var(--stellar-white);
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
         }
         
         .form-group input:focus,
@@ -573,11 +717,74 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--nebula-violet);
+            box-shadow: 0 0 0 3px rgba(107, 78, 230, 0.1);
         }
         
         .form-group textarea {
-            min-height: 120px;
+            min-height: 140px;
             resize: vertical;
+        }
+        
+        .form-group small {
+            display: block;
+            margin-top: 0.3rem;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 0.3rem;
+            accent-color: var(--nebula-violet);
+        }
+        
+        .checkbox-group label {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            cursor: pointer;
+        }
+        
+        .form-divider {
+            height: 1px;
+            background: var(--gray-200);
+            margin: 2rem 0;
+        }
+        
+        /* Estados do formulário */
+        .form-status {
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+        
+        .form-status.success {
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid #25D366;
+            color: #25D366;
+            display: block;
+        }
+        
+        .form-status.error {
+            background: rgba(255, 71, 87, 0.1);
+            border: 1px solid #ff4757;
+            color: #ff4757;
+            display: block;
+        }
+        
+        .form-status.loading {
+            background: rgba(107, 78, 230, 0.1);
+            border: 1px solid var(--nebula-violet);
+            color: var(--nebula-violet);
+            display: block;
         }
         
         .form-security {
@@ -594,6 +801,42 @@
             margin-top: 2rem;
             padding-top: 2rem;
             border-top: 1px solid var(--gray-200);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .contact-method {
+            text-align: center;
+        }
+        
+        .contact-method-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .contact-method h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            color: var(--stellar-white);
+        }
+        
+        .contact-method a {
+            color: var(--orbit-cyan);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-method a:hover {
+            color: var(--nebula-violet);
         }
         
         /* Footer */
@@ -678,8 +921,13 @@
                 display: none;
             }
             
+            .about-content,
             .manifesto-content,
             .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-highlights {
                 grid-template-columns: 1fr;
             }
             
@@ -710,6 +958,21 @@
                 width: 100%;
                 text-align: center;
             }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .alternative-contact {
+                grid-template-columns: 1fr;
+            }
+            
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+            }
         }
         
         /* Smooth Scroll */
@@ -723,13 +986,20 @@
             color: white;
         }
     </style>
-<base target="_blank">
 </head>
 <body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20arquitetura%20de%20universo%20da%20UNIVRQ" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 5.763h-.004c-1.107 0-2.206-.289-3.168-.834l-.227-.134-2.354.617.629-2.296-.149-.236c-.588-.935-.9-2.02-.9-3.153 0-3.39 2.759-6.149 6.149-6.149 1.643 0 3.188.641 4.348 1.806 1.16 1.165 1.798 2.711 1.795 4.354 0 3.392-2.758 6.15-6.149 6.15M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2"/>
+        </svg>
+    </a>
+
     <!-- Navigation -->
     <nav>
         <a href="#" class="logo">UNIV<span>RQ</span></a>
         <ul class="nav-links">
+            <li><a href="#quem-somos">Quem Somos</a></li>
             <li><a href="#manifesto">Manifesto</a></li>
             <li><a href="#problema">O Problema</a></li>
             <li><a href="#solucao">Solução</a></li>
@@ -752,7 +1022,81 @@
         </p>
         <div class="cta-group">
             <a href="#contato" class="btn-primary">→ Arquitete Seu Universo</a>
-            <a href="#manifesto" class="btn-secondary">Conheça nossa metodologia</a>
+            <a href="#quem-somos" class="btn-secondary">Conheça nossa fundação</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="quem-somos">
+        <span class="section-label">Quem Somos</span>
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Nascemos para redefinir como marcas e pessoas se conectam.</h2>
+                <p>
+                    A UNIVRQ é uma <strong>holding de marketing integrado</strong> fundada em 2026 com uma missão clara: 
+                    transformar marcas em universos vivos de conexão genuína.
+                </p>
+                <p>
+                    Enquanto o mercado fragmenta serviços em agências isoladas, nós unimos 
+                    <strong>branding estratégico, live marketing, casting de embaixadores, tecnologia e conteúdo</strong> 
+                    em uma arquitetura única.
+                </p>
+                
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <h4>🎯 Foco</h4>
+                        <p>Conexão genuína, não apenas alcance</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>🚀 Modelo</h4>
+                        <p>Holding integrada, não agência fragmentada</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>💡 Metodologia</h4>
+                        <p>Arquitetura de 5 dimensões interligadas</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>🤝 Parceria</h4>
+                        <p>Sócios de crescimento, não fornecedores</p>
+                    </div>
+                </div>
+                
+                <div class="founder-note">
+                    <h3>Da Fundação</h3>
+                    <p>
+                        "Começamos a UNIVRQ porque cansamos de ver marcas investindo milhões em campanhas 
+                        que não constroem legado. Queremos ser os arquitetos que transformam transações em 
+                        relacionamentos duradouros."
+                    </p>
+                </div>
+            </div>
+            <div class="about-visual">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6B4EE6;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00D9FF;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="90" fill="none" stroke="url(#grad1)" stroke-width="2" opacity="0.3"/>
+                    <circle cx="100" cy="100" r="70" fill="none" stroke="#6B4EE6" stroke-width="1" opacity="0.5"/>
+                    <circle cx="100" cy="100" r="50" fill="none" stroke="#00D9FF" stroke-width="1" opacity="0.7"/>
+                    <circle cx="100" cy="100" r="30" fill="#6B4EE6" opacity="0.2"/>
+                    <circle cx="100" cy="55" r="5" fill="#FFD700"/>
+                    <circle cx="145" cy="100" r="5" fill="#00D9FF"/>
+                    <circle cx="100" cy="145" r="5" fill="#6B4EE6"/>
+                    <circle cx="55" cy="100" r="5" fill="#FFD700"/>
+                    <line x1="100" y1="55" x2="145" y2="100" stroke="#FFD700" stroke-width="2" opacity="0.6"/>
+                    <line x1="145" y1="100" x2="100" y2="145" stroke="#00D9FF" stroke-width="2" opacity="0.6"/>
+                    <line x1="100" y1="145" x2="55" y2="100" stroke="#6B4EE6" stroke-width="2" opacity="0.6"/>
+                    <line x1="55" y1="100" x2="100" y2="55" stroke="#FFD700" stroke-width="2" opacity="0.6"/>
+                    <text x="100" y="105" text-anchor="middle" fill="#F8F9FA" font-family="Space Grotesk" font-size="12" font-weight="600">UNIVRQ</text>
+                </svg>
+                <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">
+                    Fundada em 2026<br>
+                    São Paulo, Brasil
+                </p>
+            </div>
         </div>
     </section>
 
@@ -957,63 +1301,138 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section - FORMSPREE OTIMIZADO -->
     <section class="contact" id="contato">
         <span class="section-label">Comece Sua Arquitetura</span>
         <h2 class="section-title">Seu universo está esperando para ser construído.</h2>
         <p>Estamos selecionando 5 marcas para diagnóstico estratégico gratuito em Abril/2026.</p>
         
-        <form class="contact-form" action="https://formsubmit.co/hello@univrq.com" method="POST">
-            <div class="form-group">
-                <label for="nome">Nome completo</label>
-                <input type="text" id="nome" name="nome" required placeholder="Seu nome">
-            </div>
-            <div class="form-group">
-                <label for="empresa">Empresa / Marca</label>
-                <input type="text" id="empresa" name="empresa" required placeholder="Nome da empresa">
-            </div>
-            <div class="form-group">
-                <label for="email">Email profissional</label>
-                <input type="email" id="email" name="email" required placeholder="seu@email.com">
-            </div>
-            <div class="form-group">
-                <label for="whatsapp">WhatsApp</label>
-                <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999">
-            </div>
-            <div class="form-group">
-                <label for="desafio">Qual seu maior desafio de marketing hoje?</label>
-                <select id="desafio" name="desafio" required>
-                    <option value="">Selecione...</option>
-                    <option value="branding">Branding e posicionamento</option>
-                    <option value="eventos">Eventos e ativações</option>
-                    <option value="comunidade">Construção de comunidade</option>
-                    <option value="dados">Dados e inteligência</option>
-                    <option value="integracao">Integração de tudo isso</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="mensagem">Conte-nos mais sobre seu universo (opcional)</label>
-                <textarea id="mensagem" name="mensagem" placeholder="Descreva seu desafio, objetivos ou sonhos para sua marca..."></textarea>
+        <!-- Mensagens de status -->
+        <div id="form-status" class="form-status"></div>
+        
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/maqlrawb" method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nome">Nome completo <span class="required">*</span></label>
+                    <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="cargo">Cargo/Função <span class="required">*</span></label>
+                    <input type="text" id="cargo" name="cargo" required placeholder="Ex: CEO, Marketing Director">
+                </div>
             </div>
             
-            <input type="hidden" name="_subject" value="Novo contato UNIVRQ - Arquitetura de Universo">
-            <input type="hidden" name="_captcha" value="false">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="empresa">Empresa / Marca <span class="required">*</span></label>
+                    <input type="text" id="empresa" name="empresa" required placeholder="Nome da empresa">
+                </div>
+                <div class="form-group">
+                    <label for="website">Website <small>(opcional)</small></label>
+                    <input type="url" id="website" name="website" placeholder="https://www.suaempresa.com">
+                </div>
+            </div>
             
-            <button type="submit" class="btn-primary" style="width: 100%; font-size: 1.1rem;">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email profissional <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp <span class="required">*</span></label>
+                    <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(11) 99999-9999">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="tamanho">Tamanho da empresa</label>
+                    <select id="tamanho" name="tamanho">
+                        <option value="">Selecione...</option>
+                        <option value="startup">Startup (1-10 funcionários)</option>
+                        <option value="pequena">Pequena empresa (11-50)</option>
+                        <option value="media">Média empresa (51-200)</option>
+                        <option value="grande">Grande empresa (200+)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="investimento">Investimento mensal em marketing</label>
+                    <select id="investimento" name="investimento">
+                        <option value="">Selecione...</option>
+                        <option value="ate-10k">Até R$ 10.000</option>
+                        <option value="10k-50k">R$ 10.000 - R$ 50.000</option>
+                        <option value="50k-100k">R$ 50.000 - R$ 100.000</option>
+                        <option value="100k+">Acima de R$ 100.000</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label for="desafio">Qual seu maior desafio de marketing hoje? <span class="required">*</span></label>
+                    <select id="desafio" name="desafio" required>
+                        <option value="">Selecione...</option>
+                        <option value="branding">Branding e posicionamento</option>
+                        <option value="eventos">Eventos e ativações</option>
+                        <option value="comunidade">Construção de comunidade</option>
+                        <option value="dados">Dados e inteligência</option>
+                        <option value="integracao">Integração de tudo isso</option>
+                        <option value="outro">Outro (descreva abaixo)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label for="mensagem">Conte-nos mais sobre seu universo</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Descreva seu desafio, objetivos, sonhos para sua marca, ou qualquer informação que ajude a entender melhor seu contexto..."></textarea>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter" value="sim">
+                        <label for="newsletter">Quero receber insights sobre arquitetura de marca e marketing integrado (1 email por semana)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="urgente" name="urgente" value="sim">
+                        <label for="urgente">Tenho urgência - preciso de resposta em até 24h</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-divider"></div>
+            
+            <!-- Campo anti-spam honeypot -->
+            <input type="text" name="_gotcha" style="display:none">
+            
+            <button type="submit" class="btn-primary" id="submit-btn" style="width: 100%; font-size: 1.1rem;">
                 → Quero Arquitetar Meu Universo
             </button>
             
             <div class="form-security">
                 <span>🔒</span>
-                <span>Seus dados estão seguros. Nunca compartilhamos informações.</span>
+                <span>Seus dados estão seguros. Responderemos em até 24h úteis.</span>
             </div>
         </form>
         
         <div class="alternative-contact">
-            <p>Prefere conversar direto?</p>
-            <p style="margin-top: 0.5rem;">
-                <a href="mailto:hello@univrq.com" style="color: var(--orbit-cyan);">hello@univrq.com</a>
-            </p>
+            <div class="contact-method">
+                <div class="contact-method-icon">📧</div>
+                <h4>Email</h4>
+                <a href="mailto:hello@univrq.com">hello@univrq.com</a>
+            </div>
+            <div class="contact-method">
+                <div class="contact-method-icon">💬</div>
+                <h4>WhatsApp</h4>
+                <a href="https://wa.me/5511999999999" target="_blank">(11) 99999-9999</a>
+            </div>
+            <div class="contact-method">
+                <div class="contact-method-icon">📍</div>
+                <h4>Localização</h4>
+                <span style="color: var(--stellar-white); font-size: 0.9rem;">São Paulo, SP</span>
+            </div>
         </div>
     </section>
 
@@ -1022,6 +1441,7 @@
         <div class="footer-content">
             <div class="footer-logo">UNIV<span style="color: var(--nebula-violet);">RQ</span></div>
             <div class="footer-links">
+                <a href="#quem-somos">Quem Somos</a>
                 <a href="#manifesto">Manifesto</a>
                 <a href="#solucao">As 5 Dimensões</a>
                 <a href="#processo">Processo</a>
@@ -1074,11 +1494,64 @@
             });
         });
         
-        // Form submission handling
-        document.querySelector('form').addEventListener('submit', function(e) {
-            const btn = this.querySelector('button[type="submit"]');
-            btn.innerHTML = 'Enviando...';
-            btn.disabled = true;
+        // Formspree AJAX handling para melhor UX
+        const form = document.getElementById('contact-form');
+        const statusDiv = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submit-btn');
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Mostrar loading
+            statusDiv.className = 'form-status loading';
+            statusDiv.textContent = '🚀 Enviando sua arquitetura...';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Sucesso
+                    statusDiv.className = 'form-status success';
+                    statusDiv.innerHTML = '✅ <strong>Universo recebido!</strong><br>Analisaremos sua arquitetura e retornaremos em até 24h.';
+                    form.reset();
+                    submitBtn.textContent = '✓ Enviado com sucesso';
+                    
+                    // Scroll para mensagem
+                    statusDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    // Erro do servidor
+                    const data = await response.json();
+                    throw new Error(data.error || 'Erro ao enviar');
+                }
+            } catch (error) {
+                // Erro de conexão
+                statusDiv.className = 'form-status error';
+                statusDiv.innerHTML = '❌ <strong>Erro ao enviar.</strong><br>Tente novamente ou entre em contato pelo WhatsApp.';
+                submitBtn.disabled = false;
+                submitBtn.textContent = '→ Tentar novamente';
+            }
+        });
+        
+        // WhatsApp number formatting
+        document.getElementById('whatsapp').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                if (value.length > 2) {
+                    value = '(' + value.substring(0, 2) + ') ' + value.substring(2);
+                }
+                if (value.length > 10) {
+                    value = value.substring(0, 9) + '-' + value.substring(9);
+                }
+                e.target.value = value;
+            }
         });
     </script>
 </body>
