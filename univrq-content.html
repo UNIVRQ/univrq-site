@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIVRQ CONTENT | UNIVRQ</title>
+    <meta name="description" content="Construímos tribos, não apenas audiências. Conteúdo que gera conversa, não apenas cliques.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cosmos-black: #0A0A0F;
+            --nebula-violet: #6B4EE6;
+            --stellar-white: #F8F9FA;
+            --orbit-cyan: #00D9FF;
+            --supernova-gold: #FFD700;
+            --gray-100: #1A1A2E;
+            --gray-200: #2D2D44;
+            --dim-color: #FF9F1C;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--cosmos-black); color: var(--stellar-white); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; line-height: 1.2; }
+
+        /* WhatsApp Float */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); z-index: 9999; cursor: pointer; transition: all 0.3s ease; text-decoration: none; animation: pulse 2s infinite; }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float svg { width: 32px; height: 32px; fill: white; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 5%; background: rgba(10, 10, 15, 0.95); backdrop-filter: blur(10px); z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--gray-100); }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--stellar-white); text-decoration: none; letter-spacing: 2px; }
+        .logo span { color: var(--nebula-violet); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--stellar-white); text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.3s; }
+        .nav-links a:hover { opacity: 1; color: var(--orbit-cyan); }
+        .back-link { color: var(--orbit-cyan); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s; }
+        .back-link:hover { color: var(--stellar-white); transform: translateX(-5px); }
+
+        /* Hero Section */
+        .hero { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 8rem 5% 4rem; position: relative; overflow: hidden; background: radial-gradient(circle at center, #FF9F1C15 0%, var(--cosmos-black) 100%); }
+        .dim-icon { font-size: 4rem; margin-bottom: 1.5rem; }
+        .pre-headline { font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; color: var(--dim-color); margin-bottom: 1rem; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); max-width: 800px; margin-bottom: 1rem; }
+        .hero h1 span { color: var(--dim-color); }
+        .hero p { font-size: clamp(1rem, 2vw, 1.25rem); max-width: 600px; opacity: 0.8; }
+
+        /* Content Section */
+        .content { padding: 4rem 5%; max-width: 1000px; margin: 0 auto; }
+        .content-block { margin-bottom: 4rem; }
+        .content-block h2 { font-size: 2rem; color: var(--supernova-gold); margin-bottom: 1.5rem; }
+        .content-block p { font-size: 1.1rem; margin-bottom: 1rem; opacity: 0.9; }
+        .content-block ul { margin-left: 2rem; margin-top: 1rem; }
+        .content-block li { margin-bottom: 0.5rem; opacity: 0.9; }
+
+        /* Services Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .service-card { background: var(--gray-100); padding: 2rem; border-radius: 15px; border: 1px solid var(--gray-200); transition: all 0.3s; }
+        .service-card:hover { border-color: var(--dim-color); transform: translateY(-5px); }
+        .service-card h3 { color: var(--dim-color); margin-bottom: 0.5rem; font-size: 1.2rem; }
+        .service-card p { font-size: 0.95rem; opacity: 0.8; }
+
+        /* CTA Section */
+        .cta-section { text-align: center; padding: 4rem 5%; background: var(--gray-100); margin-top: 2rem; }
+        .cta-section h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+        .cta-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .btn-primary { background: var(--dim-color); color: white; padding: 1rem 2.5rem; border: none; border-radius: 50px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .btn-primary:hover { background: var(--orbit-cyan); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3); }
+
+        /* Footer */
+        footer { background: var(--cosmos-black); padding: 3rem 5%; text-align: center; border-top: 1px solid var(--gray-100); margin-top: 4rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; }
+        .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-bottom: 1.5rem; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--stellar-white); text-decoration: none; opacity: 0.7; transition: opacity 0.3s; }
+        .footer-links a:hover { opacity: 1; color: var(--orbit-cyan); }
+        .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
+        .social-links a { width: 40px; height: 40px; border: 1px solid var(--gray-200); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--stellar-white); text-decoration: none; transition: all 0.3s; }
+        .social-links a:hover { background: var(--nebula-violet); border-color: var(--nebula-violet); }
+        .footer-legal { font-size: 0.85rem; opacity: 0.5; margin-bottom: 1rem; }
+        .footer-tagline { font-family: 'Space Grotesk', sans-serif; font-style: italic; color: var(--nebula-violet); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .hero { min-height: 50vh; padding-top: 6rem; }
+        }
+        html { scroll-behavior: smooth; }
+        ::selection { background: var(--nebula-violet); color: white; }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5511990023585?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20UNIVRQ%20CONTENT" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 5.763h-.004c-1.107 0-2.206-.289-3.168-.834l-.227-.134-2.354.617.629-2.296-.149-.236c-.588-.935-.9-2.02-.9-3.153 0-3.39 2.759-6.149 6.149-6.149 1.643 0 3.188.641 4.348 1.806 1.16 1.165 1.798 2.711 1.795 4.354 0 3.392-2.758 6.15-6.149 6.15M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2"/>
+        </svg>
+    </a>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">UNIV<span>RQ</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html#quem-somos">Quem Somos</a></li>
+            <li><a href="index.html#solucao">Dimensões</a></li>
+            <li><a href="index.html#processo">Processo</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+        <a href="index.html" class="back-link">← Voltar ao Universo</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="dim-icon">💬</div>
+        <span class="pre-headline">Dimensão UNIVRQ</span>
+        <h1>
+            UNIVRQ CONTENT
+            <span>Conteúdo & Comunidade Digital</span>
+        </h1>
+        <p>Construímos tribos, não apenas audiências. Conteúdo que gera conversa, não apenas cliques.</p>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content">
+        <div class="content-block">
+            <h2>Conteúdo que constrói tribos</h2>
+            <p>A UNIVRQ CONTENT não produz apenas posts para redes sociais. Criamos <strong>ecossistemas de conteúdo</strong> que unem pessoas em torno de propósitos compartilhados.</p>
+            <p>Nosso foco não é viralização passageira, mas construção de comunidade duradoura através de narrativas que ressoam.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>O que fazemos</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>📝 Estratégia de Conteúdo</h3>
+                    <p>Planejamento editorial alinhado aos objetivos de negócio e valores da marca.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🎬 Produção Audiovisual</h3>
+                    <p>Vídeos, reels, podcasts e conteúdo imersivo de alta qualidade.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📱 Gestão de Redes Sociais</h3>
+                    <p>Presença estratégica e consistente nas plataformas certas.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📰 Content Marketing</h3>
+                    <p>Artigos, e-books e materiais ricos que educam e engajam.</p>
+                </div>
+                <div class="service-card">
+                    <h3>👥 Comunidade Online</h3>
+                    <p>Gestão de grupos, fóruns e espaços de conversa da marca.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📊 Performance & SEO</h3>
+                    <p>Otimização para alcance orgânico e métricas de engajamento real.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h2>Nossa Diferença</h2>
+            <p>De audiência para <strong>comunidade engajada</strong>:</p>
+            <ul>
+                <li>Conteúdo que gera conversa, não apenas cliques</li>
+                <li>Narrativas que fortalecem identidade da marca</li>
+                <li>Integração com LIVE e CAST para amplificação</li>
+                <li>Métricas de comunidade, não apenas alcance</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Pronto para arquitetar seu universo?</h2>
+        <p>Vamos conversar sobre como a UNIVRQ pode transformar sua marca em um universo de conexão genuína.</p>
+        <a href="index.html#contato" class="btn-primary">→ Começar Agora</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">UNIV<span style="color: var(--nebula-violet);">RQ</span></div>
+            <div class="footer-links">
+                <a href="index.html#quem-somos">Quem Somos</a>
+                <a href="index.html#manifesto">Manifesto</a>
+                <a href="index.html#solucao">As 5 Dimensões</a>
+                <a href="index.html#processo">Processo</a>
+                <a href="index.html#contato">Contato</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/univrq-holding-3ab440402/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+                <a href="https://www.instagram.com/univrq/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">ig</a>
+                <a href="https://www.facebook.com/profile.php?id=61575388810357" target="_blank" rel="noopener noreferrer" aria-label="Facebook">fb</a>
+            </div>
+            <div class="footer-legal">
+                © 2026 UNIVRQ Holding. Todos os universos reservados.<br>
+                CNPJ: 42.069.285/0001-67
+            </div>
+            <div class="footer-tagline">
+                "Arquitetamos universos de conexão"
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
